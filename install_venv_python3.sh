@@ -1,7 +1,7 @@
 #!/bin/bash
+ENV_PATH='~/.environments'
 sudo apt-get update
 sudo apt-get -y upgrade
-python3 --version
 sudo apt-get install -y python3-pip
 sudo apt-get install cython
 sudo apt-get install libhdf5-dev
@@ -11,18 +11,23 @@ sudo apt-get install build-essential libssl-dev libffi-dev python3-dev
 sudo apt-get install -y python3-venv
 sudo apt-get install ffmpeg
 cd
-mkdir ~/environments
-cd ~/environments
+mkdir $ENV_PATH
+cd $ENV_PATH
 pyvenv py3
-. ~/environments/py3/bin/activate
+source $ENV_PATH/py3/bin/activate
 deactivate
 echo "
+export ENV_PATH=$ENV_PATH
 function workon_(){
-    source ~/environments/\$*/bin/activate
+    source \$ENV_PATH/\$*/bin/activate
 }
-alias workon='workon_'" >> ~/.bash_profile
+alias workon='workon_'
+function py3_(){
+    source \$ENV_PATH/py3/bin/activate
+}
+alias py3='py3_'" >> ~/.bash_profile
 source ~/.bash_profile
 
 echo "
 alias de='deactivate'" >> ~/.bash_profile
-. ~/.bash_profile
+source ~/.bash_profile
