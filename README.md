@@ -43,7 +43,7 @@ NOTE:
 2. On your login page, press CTRL+ALT+F1 to get into the shell
 3. Enter your login name and password
 4. cd GIT_INSTALL_DIR
-4. type in command "sudo sh nvidia_clean_install.sh 387"
+4. type in command "sudo sh nvidia_clean_install.sh 367"
     - this will delete any previous installed nvidia driver, and install your desired driver. Here it is 387 the latest one nvidia have at the moment. Use the one corresponds to your CUDA version.
 
 _ACKNOWLEDGEMENT_: Special thanks to the author of this Nvidia driver setup page http://www.diegoacuna.me/installing-cuda-8-on-ubuntu-16-04/
