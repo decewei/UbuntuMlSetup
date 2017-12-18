@@ -14,4 +14,3 @@ sudo apt-get update
 sudo apt-get install nvidia-$1
 sudo apt-get mesa-common-dev
 sudo apt-get install freeglut3-dev
-sudo reboot
