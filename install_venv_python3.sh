@@ -1,6 +1,6 @@
 #!/bin/bash
 ENV_PATH='~/.environments'
-USERS=`whoami`
+USER=`sh get_current_user.sh`
 sudo apt-get update
 sudo apt-get -y upgrade
 sudo apt-get install -y python3-pip
@@ -18,9 +18,10 @@ sudo chown $USERS:$USERS -R $ENV_PATH
 cd $ENV_PATH
 
 pyvenv py3
-source $ENV_PATH/py3/bin/activate
+. $ENV_PATH/py3/bin/activate
 deactivate
 
+echo"
 export ENV_PATH=$ENV_PATH
 function workon_(){
     source \$ENV_PATH/\$*/bin/activate
@@ -30,8 +31,8 @@ function py3_(){
     source \$ENV_PATH/py3/bin/activate
 }
 alias py3='py3_'" >> ~/.bash_profile
-source ~/.bash_profile
+. ~/.bash_profile
 
 echo "
 alias de='deactivate'" >> ~/.bash_profile
-source ~/.bash_profile
+. ~/.bash_profile

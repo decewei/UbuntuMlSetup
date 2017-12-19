@@ -1,5 +1,7 @@
 #!/bin/bash
-USER=`whoami`
+
+USER=`sh get_current_user.sh`
+
 sudo apt-get remove x264 libx264-dev
 sudo apt-get --assume-yes install build-essential checkinstall cmake pkg-config yasm gfortran git
 sudo apt-get --assume-yes install libjpeg8-dev libjasper-dev libpng12-dev

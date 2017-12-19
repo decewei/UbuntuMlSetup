@@ -2,7 +2,7 @@
 # make sure CUDA and cuDNN is installed (1.4.0 is compatible with CUDA 8 and cuDNN 6)
 # make sure PATH, CUDA_HOME, LD_LIBRARY_PATH are set to appropriate paths
 TENSORFLOW_PATH="$HOME/.environments/tensorflow"
-USER=`whoami`
+USER=`sh get_current_user.sh`
 echo "export PATH=/usr/local/cuda/bin${PATH:+:${PATH}}
 export CUDA_HOME=/usr/local/cuda
 export LD_LIBRARY_PATH=/usr/local/cuda/lib64${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}

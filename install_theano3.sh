@@ -1,6 +1,6 @@
 #!/bin/bash
 THEANO_PATH='/home/celine/.environments/theano'
-USER=`whoami`
+USER=`sh get_current_user.sh`
 # pyvenv $THEANO_PATH
 # sudo chown -R $USER:$USER $THEANO_PATH
 # source $THEANO_PATH/bin/activate
