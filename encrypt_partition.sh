@@ -1,3 +1,4 @@
+#!/bin/bash
 PART_NAME=$1
 MNT_POINT=$2
 if [ $# -lt 2 ]; then
