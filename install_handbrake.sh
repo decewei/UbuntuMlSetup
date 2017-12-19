@@ -5,3 +5,4 @@ sudo apt-get install handbrake-gtk
 sudo apt-get install handbrake-cli
 sudo echo "
 alias handbrake='HandBrakeCLI \$*'" >> ~/.bash_profile
+. ~/.bash_profile
