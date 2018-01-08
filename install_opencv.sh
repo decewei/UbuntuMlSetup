@@ -63,8 +63,10 @@ find /usr/local/lib/ -type f -name "cv2*.so"
 ## binary installed in dist-packages
 read -p "Make sure if the above lines look something like the following
     /usr/local/lib/python3.5/dist-packages/cv2.cpython-35m-x86_64-linux-gnu.so
-    /usr/local/lib/python3.5/dist-packages/cv2.cpython-35m-x86_64-linux-gnu.so
     Press [enter] to continue... "
+
+cd ~/.environments/tensorflow #where your virtualenv located
+cp /usr/local/lib/python3.5/dist-packages/cv* ./lib/python3.5/site-packages/
 
 sudo apt-get autoremove
 echo "Done openCV setup"
