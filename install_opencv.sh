@@ -33,7 +33,7 @@ cd ..
 sudo chown -R $USER:$USER opencv
 sudo chown -R $USER:$USER opencv_contrib
 
-cd opencv
+cd ~/opencv
 mkdir build
 cd build
 
@@ -66,7 +66,7 @@ read -p "Make sure if the above lines look something like the following
     Press [enter] to continue... "
 
 cd ~/.environments/tensorflow #where your virtualenv located
-cp /usr/local/lib/python3.5/dist-packages/cv* ./lib/python3.5/site-packages/
+sudo cp /usr/local/lib/python3.5/dist-packages/cv* ./lib/python3.5/site-packages/
 
 sudo apt-get autoremove
 echo "Done openCV setup"
