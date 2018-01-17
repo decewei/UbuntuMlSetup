@@ -67,6 +67,10 @@ read -p "Make sure if the above lines look something like the following
 
 cd ~/.environments/tensorflow #where your virtualenv located
 sudo cp /usr/local/lib/python3.5/dist-packages/cv* ./lib/python3.5/site-packages/
+cd ~/.environments/theano #where your virtualenv located
+sudo cp /usr/local/lib/python3.5/dist-packages/cv* ./lib/python3.5/site-packages/
+cd ~/.environments/py3 #where your virtualenv located
+sudo cp /usr/local/lib/python3.5/dist-packages/cv* ./lib/python3.5/site-packages/
 
 sudo apt-get autoremove
 echo "Done openCV setup"
