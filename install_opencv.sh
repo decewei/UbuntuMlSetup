@@ -23,12 +23,12 @@ sudo apt-get --assume-yes install libgphoto2-dev libeigen3-dev libhdf5-dev doxyg
 cd
 git clone https://github.com/opencv/opencv.git
 cd opencv
-git checkout 3.3.0
+git checkout master
 cd ..
 
 git clone https://github.com/opencv/opencv_contrib.git
 cd opencv_contrib
-git checkout 3.3.0
+git checkout master
 cd ..
 sudo chown -R $USER:$USER opencv
 sudo chown -R $USER:$USER opencv_contrib
@@ -37,21 +37,26 @@ cd opencv
 mkdir build
 cd build
 
+install ffmpeg from src with --enable_shared
+install gstreamer0.10 gstsreamer1.0
 sudo apt install cmake
-cmake -D CMAKE_BUILD_TYPE=RELEASE \
-      -D CMAKE_INSTALL_PREFIX=/usr/local \
-      -D INSTALL_C_EXAMPLES=ON \
-      -D INSTALL_PYTHON_EXAMPLES=ON \
-      -D WITH_TBB=ON \
-      -D WITH_V4L=ON \
-      -D WITH_QT=ON \
-      -D WITH_OPENGL=ON \
-      -D OPENCV_EXTRA_MODULES_PATH=../../opencv_contrib/modules \
-      -D CUDA_CUDA_LIBRARY=/usr/local/cuda/lib64/stubs/libcuda.so \
-      -D BUILD_EXAMPLES=ON ..
 
-# find out number of CPU cores in your machine
-# substitute 4 by output of nproc
+cmake -D CMAKE_BUILD_TYPE=RELEASE -D CMAKE_INSTALL_PREFIX=/usr/local \
+      -D WITH_CUDA=ON -D ENABLE_FAST_MATH=1 -D CUDA_FAST_MATH=1 \
+      -D WITH_CUBLAS=ON \
+      -D INSTALL_PYTHON_EXAMPLES=ON \
+      -D ENABLE_PRECOMPILED_HEADERS=OFF \
+      -D BUILD_TEST=OFF \
+      -D CUDA_NVCC_FLAGS="-D_FORCE_INLINES" \
+      -D CUDA_GENERATION=Volta \
+      -D WITH_FFMPEG=ON \
+      -D WITH_GSTREAMER=ON \
+      -D WITH_LIBV4L=ON \
+      -D OPENCV_EXTRA_MODULES_PATH=../../opencv_contrib/modules \
+      -D WITH_TBB=ON -D WITH_GTK=ON -D WITH_V4L=ON -D WITH_OPENGL=ON -DWITH_QT=OFF ..
+
+# # find out number of CPU cores in your machine
+# # substitute 4 by output of nproc
 NPROC=`nproc`
 make -j$NRPOC
 sudo make install
@@ -65,8 +70,8 @@ read -p "Make sure if the above lines look something like the following
     /usr/local/lib/python3.5/dist-packages/cv2.cpython-35m-x86_64-linux-gnu.so
     Press [enter] to continue... "
 
-cd ~/.environments/tensorflow #where your virtualenv located
+cd ~/.environments/tensorflow_new #where your virtualenv located
 cp /usr/local/lib/python3.5/dist-packages/cv* ./lib/python3.5/site-packages/
 
-sudo apt-get autoremove
+# sudo apt-get autoremove
 echo "Done openCV setup"
