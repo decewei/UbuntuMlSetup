@@ -21,8 +21,8 @@ cd ~/opencv
 mkdir build
 cd build
 
-install ffmpeg from src with --enable_shared
-install gstreamer0.10 gstsreamer1.0
+# install ffmpeg from src with --enable_shared
+# install gstreamer0.10 gstsreamer1.0
 sudo apt install cmake
 
 # cmake -D CMAKE_BUILD_TYPE=RELEASE -D CMAKE_INSTALL_PREFIX=/usr/local \
@@ -45,10 +45,12 @@ cmake -D CMAKE_BUILD_TYPE=RELEASE \
     -D WITH_CUDA=ON -D ENABLE_FAST_MATH=1 -D CUDA_FAST_MATH=1 \
     -D WITH_CUBLAS=ON \
     -D WITH_FFMPEG=ON \
-    -D OPENCV_EXTRA_MODULES_PATH=../../opencv_contrib-3.4.5/modules/ \
+    -D OPENCV_EXTRA_MODULES_PATH=../../opencv_contrib/modules/ \
     -D OPENCV_ENABLE_NONFREE=ON \
     -D WITH_EIGEN=ON\
-    -D WITH_TBB=ON -D WITH_GTK=ON -D WITH_V4L=ON -D WITH_OPENGL=ON -DWITH_QT=OFF ..
+    -D WITH_GSTREAMER=ON\
+    -D WITH_TBB=ON -D WITH_GTK=ON -D WITH_V4L=ON -D WITH_OPENGL=ON -DWITH_QT=OFF\
+    -D BUILD_opencv_python3=On   ..
 
 # # find out number of CPU cores in your machine
 # # substitute 4 by output of nproc
